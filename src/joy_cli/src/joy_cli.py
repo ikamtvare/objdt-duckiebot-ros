@@ -10,6 +10,8 @@ from __builtin__ import True
 
 def keyCatcher(host):
     pub = rospy.Publisher('/'+host+'/joy', Joy, queue_size=1)
+
+    buttons = [0] * 11
     
     while not rospy.is_shutdown():
         direction = raw_input('Enter direction(a,w,s,d)--> ')
@@ -24,12 +26,12 @@ def keyCatcher(host):
         else:
             axes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        msg = Joy(header=None, axes=axes, buttons=None)
+        msg = Joy(header=None, axes=axes, buttons=buttons)
         pub.publish(msg)
         rospy.sleep(0.5)
 
         axes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-        msg = Joy(header=None, axes=axes, buttons=None)
+        msg = Joy(header=None, axes=axes, buttons=buttons)
         pub.publish(msg)
 
 if __name__ == '__main__':

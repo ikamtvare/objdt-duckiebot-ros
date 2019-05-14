@@ -1,0 +1,2 @@
+duckietown_msgs:joy_cli
+-DCATKIN_DEVEL_PREFIX=/home/irakli/objdt-duckiebot-ros/devel -DCMAKE_INSTALL_PREFIX=/home/irakli/objdt-duckiebot-ros/install -G Unix Makefiles
